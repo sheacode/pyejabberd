@@ -395,6 +395,18 @@ class EjabberdAPIClient(contract.EjabberdAPIContract):
         """
         return self._call_api(definitions.GetRoster, user=user, host=host)
 
+    def get_room_occupants(self, name, service):
+        """
+        Get room online users
+
+        :param name:The name for the room
+        :type name: str|unicode
+        :param service: The MUC service name (e.g. "conference")
+        :type service: str|unicode
+        :return:
+        """
+        return self._call_api(definitions.MucRoomOcuppants, name=name, service=service)
+
     def send_stanza(self, _from, _to, stanza):
         """
         Check if an account exists or not

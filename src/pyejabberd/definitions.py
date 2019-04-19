@@ -229,6 +229,21 @@ class GetRoster(API):
         return roster
 
 
+class MucRoomOcuppants(API):
+    method = 'get_room_occupants'
+    arguments = [StringArgument('name'), StringArgument('service')]
+
+    def transform_response(self, api, arguments, response):
+        occupants = []
+        for occupant in response.get('occupants', []):
+            occupant_details = {}
+            for parameter in occupant['occupant']:
+                for key, value in parameter.items():
+                    occupant_details[key] = value
+            occupants.append(occupant_details)
+        return occupants
+
+
 class SendStanza(API):
     method = 'send_stanza'
     arguments = [StringArgument('from'), StringArgument('to'), StringArgument('stanza')]
