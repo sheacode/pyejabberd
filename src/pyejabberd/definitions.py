@@ -227,3 +227,11 @@ class GetRoster(API):
                     contact_details[key] = value
             roster.append(contact_details)
         return roster
+
+
+class SendStanza(API):
+    method = 'send_stanza'
+    arguments = [StringArgument('from'), StringArgument('to'), StringArgument('stanza')]
+
+    def transform_response(self, api, arguments, response):
+        return response.get('res') == 0

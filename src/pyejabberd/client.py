@@ -395,6 +395,25 @@ class EjabberdAPIClient(contract.EjabberdAPIContract):
         """
         return self._call_api(definitions.GetRoster, user=user, host=host)
 
+    def send_stanza(self, _from, _to, stanza):
+        """
+        Check if an account exists or not
+
+        :param _from: The username of the user sending the stanza
+        :type user: str|unicode
+        :param _to: The username of the user receiving the stanza
+        :type host: str|unicode
+        :param stanza: The stanza to be sent
+        :type stanza: str|unicode
+        :return:
+        """
+        kwargs = {
+            'from': _from,
+            'to': _to,
+            'stanza': stanza
+        }
+        return self._call_api(definitions.SendStanza, **kwargs)
+
     def _validate_and_serialize_arguments(self, api, arguments):
         """
         Internal method to validate and serialize arguments
