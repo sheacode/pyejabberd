@@ -24,6 +24,15 @@ class MUCRoomOption(Enum):
     public = 18
     public_list = 19
     title = 20
+    # custom options
+    allow_subscription = 21
+    captcha_whitelist = 22
+    description = 23
+    mam = 24
+    presence_broadcast = 25
+    vcard = 26
+    voice_request_min_interval = 27
+    allow_voice_requests = 28
 
 
 class AllowVisitorPrivateMessage(Enum):
