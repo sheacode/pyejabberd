@@ -26,5 +26,13 @@ muc_room_options_serializers = {
     MUCRoomOption.persistent:                           BooleanSerializer,
     MUCRoomOption.public:                               BooleanSerializer,
     MUCRoomOption.public_list:                          BooleanSerializer,
-    MUCRoomOption.title:                                StringSerializer
+    MUCRoomOption.title:                                StringSerializer,
+    MUCRoomOption.allow_subscription:                   BooleanSerializer,
+    MUCRoomOption.captcha_whitelist:                    StringSerializer,
+    MUCRoomOption.description:                          StringSerializer,
+    MUCRoomOption.mam:                                  BooleanSerializer,
+    MUCRoomOption.presence_broadcast:                   StringSerializer,
+    MUCRoomOption.vcard:                                StringSerializer,
+    MUCRoomOption.voice_request_min_interval:           PositiveIntegerSerializer,
+    MUCRoomOption.allow_voice_requests:                 BooleanSerializer
 }
